@@ -565,6 +565,7 @@ class TwitterUser:
                                 },
                                 [str(e)]
                                 )
+                        raise e
             else:
                 '''
                 tweeting is a list of lists returned by Client.create_tweet().
