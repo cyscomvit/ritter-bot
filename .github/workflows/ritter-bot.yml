@@ -56,7 +56,7 @@ jobs:
             echo "log_files_exists=false" >> $GITHUB_ENV
           fi
       - name: Commit log_files if it exists
-        if: env.log_files_exists
+        if: ${{ env.log_files_exists == 'true' }}
         run: |
           # Stages log_files, commits and pushes
           git checkout deployment
@@ -74,7 +74,7 @@ jobs:
             echo "old_log_files_exists=false" >> $GITHUB_ENV
           fi
       - name: Commit old_log_files if it exists
-        if: env.old_log_files_exists
+        if: ${{ env.old_log_files_exists == 'true' }}
         run: |
           # Stages old_log_files, commits and pushes
           git checkout deployment
