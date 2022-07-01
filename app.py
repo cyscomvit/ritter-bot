@@ -552,16 +552,18 @@ class TwitterUser:
                     if "duplicate content" in str(e):
                         tweeting = (
                             {
-                                'id': "#duplicate tweet",
+                                'id': 0,
                                 'text': tweet_text
-                                }
+                                },
+                                ["duplicate_content"]
                                 )
                     else:
                         tweeting = (
                             {
-                                'id': f"#{str(e)}_error_so_not_tweeted",
+                                'id': 0,
                                 'text': tweet_text
-                                }
+                                },
+                                [str(e)]
                                 )
             else:
                 '''
@@ -571,9 +573,10 @@ class TwitterUser:
                 '''
                 tweeting = (
                     {
-                        'id': "#testing_mode=True",
+                        'id': 0,
                         'text': tweet_text,
-                    }
+                    },
+                    ["testing_mode=True"]
                 )
             return tweeting
         else:
