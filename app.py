@@ -601,6 +601,7 @@ class TwitterUser:
                 tweet_ids=[0]
                 for sentence in sentences_to_tweet:
                     tweeting = self.tweet_out(sentence, url,in_reply_to_id=tweet_ids[-1])
+                    print(tweeting)
                     tweet_ids.append(tweeting[0]['id'])
                 if read_more:
                     tweeting = self.tweet_out("Read more at " + url,url,in_reply_to_id=tweet_ids[-1])
